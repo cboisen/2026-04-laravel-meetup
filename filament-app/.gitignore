@@ -17,12 +17,17 @@
 /.agents
 /.claude
 /.gemini
+/.github
 
 /auth.json
 /node_modules
 /public/build
 /public/hot
 /public/storage
+/public/css/filament
+/public/fonts/filament
+/public/js/filament
+
 /storage/*.key
 /storage/pail
 /vendor
