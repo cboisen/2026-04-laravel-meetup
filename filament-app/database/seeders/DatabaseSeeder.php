@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cat;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,11 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::create([
+            'email' => 'christoffer@emplate.it',
+            'name' => 'Christoffer',
+            'password' => bcrypt('hej123'),
         ]);
+        User::factory(10)->create()->each(function (User $user): void {
+            Cat::factory(rand(1, 3))->create(['user_id' => $user->id]);
+        });
     }
 }
